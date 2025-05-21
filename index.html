@@ -2,17 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Niek Hendrix</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
 <nav>
-    <a href="#">Niek Hendrix</a>
-    <ul>
+    <div class="nav-left">
+        <a href="#">Niek Hendrix</a>
+    </div>
+
+    <button class="hamburger" id="hamburger-button" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul id="nav-menu">
         <li><a href="#">Cabinet (Tulpendia)</a></li>
         <li><a href="#">Paintings</a></li>
         <li><a href="#">Biography</a></li>
@@ -52,24 +62,27 @@
 <main>
     <img src="images/Niek-Hendrix-studio.jpg" alt="">
     <div class="text">
-        <p>Lorem ipsum dolor sit amet...</p>
-        <p>Lorem ipsum dolor sit amet...</p>
-        <p>Lorem ipsum dolor sit amet...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
     </div>
 </main>
 
 <script>
+    // Sticky title
     window.addEventListener('scroll', function () {
         const hero = document.querySelector('.hero');
         const stickyTitle = document.getElementById('sticky-title');
-
         const rect = hero.getBoundingClientRect();
+        stickyTitle.classList.toggle('visible', rect.bottom <= 0);
+    });
 
-        if (rect.bottom <= 0) {
-            stickyTitle.classList.add('visible');
-        } else {
-            stickyTitle.classList.remove('visible');
-        }
+    // Hamburger toggle
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const navMenu = document.getElementById('nav-menu');
+    hamburgerButton.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        hamburgerButton.classList.toggle('open');
     });
 </script>
 
