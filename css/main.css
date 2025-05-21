@@ -129,7 +129,7 @@ nav {
 
 .collage-grid .item {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(10px);
   transition: transform 0.6s ease-out, opacity 0.6s ease-out;
   width: 100%;
   height: auto;
@@ -171,13 +171,12 @@ nav {
   margin-top: -40px;
 }
 
-/* Sticky title */
+/* Responsive sticky-title */
 #sticky-title {
   position: fixed;
   bottom: 100px;
   width: 100%;
   text-align: center;
-  font-size: 10rem;
   font-family: "Helvetica Neue", sans-serif;
   opacity: 0;
   transform: translateY(20px);
@@ -186,20 +185,35 @@ nav {
   z-index: 1000;
   text-transform: uppercase;
   font-weight: bold;
+  /* default mobile font-size */
+  font-size: 4rem;
 }
 
+@media (min-width: 768px) {
+  #sticky-title {
+    font-size: 6rem;
+  }
+}
+@media (max-width: 1024px) {
+  #sticky-title {
+    font-size: 3rem;
+  }
+  .content {
+    flex-direction: column !important;
+  }
+}
 #sticky-title.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Trigger placeholder */
+/* Trigger placeholder for sticky title */
 #sticky-stop {
   height: 1px;
   margin-bottom: 0;
 }
 
-/* Main content */
+/* Main content layout */
 main {
   padding: 1em;
   display: flex;
@@ -209,23 +223,22 @@ main {
 
 .content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
 }
 
+/* Disable sticky image on mobile */
 .content img {
   width: 100%;
-  object-fit: cover;
-  position: sticky;
-  top: 4em;
+  object-fit: contain;
+  position: static;
+  max-height: fit-content;
 }
 
 @media (min-width: 768px) {
-  .content {
-    flex-direction: row;
-    align-items: flex-start;
-  }
   .content img {
+    position: sticky;
+    top: 4em;
     flex: 1;
     max-width: 50%;
   }
