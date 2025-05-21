@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* css/main.css */
 /* Reset en fonts */
 body {
   margin: 0;
@@ -74,6 +74,7 @@ nav {
   font-size: 1.2rem;
 }
 
+/* Desktop menu */
 @media (min-width: 768px) {
   .hamburger {
     display: none;
@@ -89,7 +90,7 @@ nav {
     font-size: 1rem;
   }
 }
-/* Hero */
+/* Hero section */
 .hero {
   position: relative;
   height: 80vh;
@@ -117,42 +118,54 @@ nav {
   z-index: -1;
 }
 
-/* Grid */
-.grid-container {
-  padding: 1em;
-  column-count: 1;
-  column-gap: 1rem;
+.collage-grid {
+  margin: 10em auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  position: relative;
 }
 
-@media (min-width: 600px) {
-  .grid-container {
-    column-count: 2;
-  }
-}
-@media (min-width: 1024px) {
-  .grid-container {
-    column-count: 3;
-  }
-}
-.grid-item {
+.item {
   width: 100%;
-  display: block;
-  break-inside: avoid;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
+  height: auto;
+  margin-bottom: 5em;
+  border: 1px solid black;
 }
 
-.grid-item.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Verspringende plaatsingen */
+.item1 {
+  grid-column: 2/span 4;
+  grid-row: 1;
 }
 
-/* —— STICKY TITLE —— */
+.item2 {
+  grid-column: 9/span 4;
+  grid-row: 1;
+  margin-top: 50px;
+}
+
+.item3 {
+  grid-column: 3/span 6;
+  grid-row: 2;
+  z-index: 2;
+}
+
+.item4 {
+  grid-column: 1/span 6;
+  grid-row: 3;
+}
+
+.item5 {
+  grid-column: 7/span 6;
+  grid-row: 3;
+  margin-top: -40px;
+}
+
+/* Sticky title */
 #sticky-title {
   position: fixed;
-  bottom: 40px;
+  bottom: 100px;
   width: 100%;
   text-align: center;
   font-size: 10rem;
@@ -162,6 +175,8 @@ nav {
   transition: opacity 1s ease, transform 1s ease;
   pointer-events: none;
   z-index: 1000;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 #sticky-title.visible {
@@ -169,13 +184,13 @@ nav {
   transform: translateY(0);
 }
 
-/* Trigger (placeholder) */
+/* Trigger placeholder for sticky title */
 #sticky-stop {
   height: 1px;
-  margin-bottom: 0; /* wordt aangepast via JS */
+  margin-bottom: 0; /* wordt dynamisch aangepast via JS */
 }
 
-/* Main content */
+/* Main content layout */
 main {
   padding: 1em;
   display: flex;
