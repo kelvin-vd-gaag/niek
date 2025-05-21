@@ -92,6 +92,8 @@ nav {
 }
 /* Hero section */
 .hero {
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   height: 80vh;
   overflow: hidden;
