@@ -90,4 +90,24 @@ h2 {
   margin-bottom: 1rem;
 }
 
+#sticky-title {
+  position: fixed;
+  top: -100px; /* begint buiten beeld */
+  left: 0;
+  width: 100%;
+  background: white;
+  color: black;
+  font-family: "Limelight", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 0.5em 0;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#sticky-title.visible {
+  top: 0;
+}
+
 /*# sourceMappingURL=main.css.map */
